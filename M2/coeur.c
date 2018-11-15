@@ -51,18 +51,18 @@ int main(int argc, char *argv[])
 				break;
 			case 1:
 				fprintf(fichier, "#define OPTION 1");
-          		fclose(fichier);
+          			fclose(fichier);
                 break;
 			case 2:
 				fprintf(fichier, "#define OPTION 2");
-          		fclose(fichier);;
+          			fclose(fichier);;
 				break;
 			case 3:
 				printf("\n1 LED sur combien ?\n>>> ");
 				scanf("%d", &n);
 				fprintf(fichier, "#define OPTION 3\n");
 				fprintf(fichier, "#define LED %d", n);
-          		fclose(fichier);
+          			fclose(fichier);
                 break;
 			case 4:
 				printf("\nChoisir la LED a allumer (1 - 10)\n>>> ");
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
                 break;
 			case 5:
 				fprintf(fichier, "#define OPTION 2");
-          		fclose(fichier);;
+          			fclose(fichier);;
                 break;
 			default:
 				printf("\n[!] Veuillez choisir une option comprise entre 1 et 5 !\n");
