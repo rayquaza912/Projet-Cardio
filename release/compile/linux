@@ -1,0 +1,3 @@
+#!/bin/bash
+echo [*] Compiling trhough GNU/gcc ...
+gcc -o ../out/reader -Wall ../sources/*.c
