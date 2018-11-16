@@ -1,2 +1,2 @@
-#define OPTION 4
-#define LED 6
+#define OPTION 1
+//#define LED X
