@@ -1,13 +1,11 @@
-//From Arduino to Processing to Txt or cvs etc.
-//import
 import processing.serial.*;
-//declare
 PrintWriter output;
 Serial udSerial;
 
 void setup() {
   udSerial = new Serial(this, Serial.list()[0], 9600);
-  output = createWriter ("Battements.csv");
+  //May change the 9600 to 115200
+  output = createWriter ("pulses.csv");
 }
 
   void draw() {
