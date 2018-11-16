@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
                 break;
 			case 5:
 				fprintf(fichier, "#define OPTION 2");
-          			fclose(fichier);;
+          			fclose(fichier);
                 break;
 			default:
 				printf("\n[!] Veuillez choisir une option comprise entre 1 et 5 !\n");
