@@ -1,35 +1,47 @@
-void setup(){
-Serial.begin(9600);
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "module4.h"
 
-void loop () {
+int readData(char fileName[32])
+{
+	FILE *csv = NULL;
+	csv = fopen(fileName, "r");
 
-int val=analogRead(A0);
-  if (val>=15, val<=20) {
-    delay(100);
-    if (analogRead(A0)>val) {
-      getSpike();
-     }
-  }
-}
+	if (csv == NULL)
+	{
+		printf("[!] Error while opening the file, exiting...\n");
+		return 0;
+		exit(0);
+	}
 
-void getSpike() {
-  int val=analogRead(A0);
-  int currentBPM=0, maxBPM=0;
+	else
+	{
+		char ligne[32], *ch, t[2048];
+		int x=0, bpm[2048];
 
-  while (analogRead(A0)>=15) {
-    currentBPM = analogRead(A0);
-    
-    if (currentBPM > maxBPM) {
-      maxBPM = currentBPM;
-      }
-    }
+		while (fgets (ligne, sizeof ligne, csv) != NULL)
+		{
 
-    if (maxBPM != 0 && maxBPM < 200) {
-      Serial.print(maxBPM);
-      Serial.print(" ; ");
-    }
+			ch = strtok(ligne, ";");
+			while (ch != NULL)
+			{
 
-    maxBPM=0;
-    currentBPM=0;
+				if (x%2 != 0)
+				{
+					printf("Temps : %s	", ch);
+				}
+				else
+				{
+					printf("BPM : %s\n", ch);
+				}
+				
+				ch = strtok(NULL, "\n");
+				x++;
+			}
+		}
+	}
+
+	fclose(csv);
+	return 1;
 }
